@@ -26,6 +26,7 @@ gameOver_txt = text.renderText("GAME OVER", txtColor)
 maxScore_txt= text.renderSmallText("MAX SCORE:", txtColor)
 SoundtrackCredit = text.renderSmallText("Soundtrack: Kim Lightyear", txtColor)
 AudioEffectsCredit = text.renderSmallText("Sound Effects: floraphonic", txtColor)
+start_txt = text.renderText("PRESS SPACE TO START" , txtColor)
 
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
@@ -33,13 +34,37 @@ nextBackground = pygame.Rect(20,290,200,200)
 
 pygame.display.set_caption("Tetris")
 clock = pygame.time.Clock()
-isRunning = True
+
+menuRunning = True
+isRunning = False
 
 
 
 
 timer_event = pygame.USEREVENT 
 pygame.time.set_timer(timer_event , blockFallTimer)
+
+#Menu
+while menuRunning:
+    for event in pygame.event.get():
+        #Zamknięcie gry
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+            
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                menuRunning = False
+                isRunning = True
+    
+    screen.fill(backgroundColor)
+    screen.blit(start_txt , (20,250,50,50))
+    screen.blit(title_txt , (20,20,50,50))
+    
+    pygame.display.update()
+    clock.tick(60)
+
+
 
 #Głowna pętla gry
 while isRunning:
@@ -91,6 +116,7 @@ while isRunning:
     
     if game.gameOver == True:
         screen.blit(gameOver_txt , (20,510,50,50))
+        
         
     game.draw(screen)
     

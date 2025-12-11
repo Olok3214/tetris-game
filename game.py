@@ -23,7 +23,7 @@ class GameMechanic:
         
         pygame.mixer.music.load("SoundEffects\kim-lightyear-leave-the-world-tonight.mp3")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.set_volume(0.15)
         
     def getRandomBlock(self):
         # W grze każdy z bloków pojawia się przynajmniej raz podczas iteracji po wszytkich blokach
