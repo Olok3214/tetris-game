@@ -56,7 +56,7 @@ isRunning = False
 
 
 timer_event = pygame.USEREVENT 
-pygame.time.set_timer(timer_event , blockFallTimer)
+
 
 #Menu
 while menuRunning:
@@ -100,8 +100,9 @@ while menuRunning:
     
     pygame.display.update()
     clock.tick(60)
-
-
+    
+#Ustawienie timera do opadania bloków
+pygame.time.set_timer(timer_event , blockFallTimer)
 
 #Głowna pętla gry
 while isRunning:
