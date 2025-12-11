@@ -24,7 +24,7 @@ class Difficulty:
         self.difficultyChangeSound.play()
         if self.blockFallTimer == 50:
             self.blockFallTimer = 250
-        if self.blockFallTimer == 150:
+        elif self.blockFallTimer == 150:
             self.blockFallTimer = 50
         elif self.blockFallTimer == 200:
             self.blockFallTimer = 150

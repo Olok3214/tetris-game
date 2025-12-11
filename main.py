@@ -89,11 +89,11 @@ while menuRunning:
     screen.blit(AudioEffectsCredit, (20,645,50,50))
     
     
-    if dif.blockFallTimer == 150:
+    if dif.blockFallTimer == 250:
         screen.blit(easy_txt, (20,350,50,50))
     elif dif.blockFallTimer == 200:
         screen.blit(normal_txt, (20,350,50,50))
-    elif dif.blockFallTimer == 250:
+    elif dif.blockFallTimer == 150:
         screen.blit(hard_txt, (20,350,50,50))
     elif dif.blockFallTimer == 50:
         screen.blit(extreme_txt, (20,350,50,50))
@@ -102,7 +102,7 @@ while menuRunning:
     clock.tick(60)
 
 
-
+print("Selected block fall timer: ", blockFallTimer)
 #Głowna pętla gry
 while isRunning:
     for event in pygame.event.get():
