@@ -1,5 +1,5 @@
 from blocks import Block
-from position import Positon
+from positionInGrid import Positon
 
 #Definicje wszystkich blocków
 #Każdy z bloków dziedziczy funcje klasy Block

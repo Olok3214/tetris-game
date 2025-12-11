@@ -1,6 +1,6 @@
 from calendar import c
 import pygame
-from color import Colors
+from blockcolors import Colors
 
 rows = 20
 columns = 10

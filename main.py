@@ -1,7 +1,7 @@
 
 import sys
 import pygame
-from game import GameMechanic
+from gameMainMechanics import GameMechanic
 from textDisplay import text
 from difficultyMenu import Difficulty
 

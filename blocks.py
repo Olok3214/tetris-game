@@ -1,7 +1,7 @@
 from grid import singleCellSize
-from color import Colors
+from blockcolors import Colors
 import pygame
-from position import Positon
+from positionInGrid import Positon
 
 #Rysowanie poszczególnych bloków
 class Block:
