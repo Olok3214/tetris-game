@@ -28,6 +28,7 @@ blockFallTimer = dif.blockFallTimer
 
 
 title_txt = text.renderTitle("TETRIS", txtColor)
+menuTitle_txt = text.renderBigText("TETRIS" , txtColor)
 score_txt = text.renderText("SCORE:", txtColor)
 next_txt = text.renderText("NEXT:", txtColor)
 gameOver_txt = text.renderText("GAME OVER", txtColor)
@@ -73,17 +74,16 @@ while menuRunning:
             if event.key == pygame.K_LEFT:
                 dif.difficultyDown()
                 blockFallTimer = dif.blockFallTimer
-                print("CURRENT DIF", blockFallTimer)
             if event.key == pygame.K_RIGHT:
                 dif.difficultyUp()
                 blockFallTimer = dif.blockFallTimer
-                print("CURRENT DIF", blockFallTimer)
+                
   
     
     screen.fill(backgroundColor)
     pygame.draw.rect(screen, boxColor, difficultyBackground,0,10)
     screen.blit(start_txt , (20,250,50,50))
-    screen.blit(title_txt , (20,20,50,50))
+    screen.blit(menuTitle_txt  , (110,40,50,50))
     screen.blit(selectDif_txt, (20,310,50,50))
     screen.blit(SoundtrackCredit,(20,670,50,50))
     screen.blit(AudioEffectsCredit, (20,645,50,50))
