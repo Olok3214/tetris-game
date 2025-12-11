@@ -1,8 +1,9 @@
-from platform import python_branch
+
 import sys
 import pygame
 from game import GameMechanic
 from textDisplay import text
+from difficultyMenu import Difficulty
 
 pygame.init()
 
@@ -10,14 +11,21 @@ backgroundColor = (48 , 25,52)
 txtColor = (255,255,255)
 boxColor = (54,15,90)
 
-#szybkośc spadania bloków
-blockFallTimer = 200
+
 
 #Wielkość okna gry
 screen = pygame.display.set_mode((600,700))
 
+dif = Difficulty()
 text = text()
 game = GameMechanic()
+
+#szybkośc spadania bloków
+
+
+blockFallTimer = dif.blockFallTimer
+
+
 
 title_txt = text.renderTitle("TETRIS", txtColor)
 score_txt = text.renderText("SCORE:", txtColor)
@@ -27,10 +35,15 @@ maxScore_txt= text.renderSmallText("MAX SCORE:", txtColor)
 SoundtrackCredit = text.renderSmallText("Soundtrack: Kim Lightyear", txtColor)
 AudioEffectsCredit = text.renderSmallText("Sound Effects: floraphonic", txtColor)
 start_txt = text.renderText("PRESS SPACE TO START" , txtColor)
+selectDif_txt = text.renderSmallText("Use arrows <- -> to change difficulty",txtColor)
+easy_txt = text.renderText("< EASY >" , txtColor)
+normal_txt = text.renderText("< NORMAL >" , txtColor)
+hard_txt = text.renderText("< HARD >" , txtColor)
+extreme_txt = text.renderText("< EXTREME >" , txtColor)
 
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
-
+difficultyBackground = pygame.Rect(10 , 300 , 480 , 100)
 
 pygame.display.set_caption("Tetris")
 clock = pygame.time.Clock()
@@ -56,10 +69,34 @@ while menuRunning:
             if event.key == pygame.K_SPACE:
                 menuRunning = False
                 isRunning = True
+                #Zwiększenie / zmniejszenie trudności gry i ponowne przypisanie 
+            if event.key == pygame.K_LEFT:
+                dif.difficultyDown()
+                blockFallTimer = dif.blockFallTimer
+                print("CURRENT DIF", blockFallTimer)
+            if event.key == pygame.K_RIGHT:
+                dif.difficultyUp()
+                blockFallTimer = dif.blockFallTimer
+                print("CURRENT DIF", blockFallTimer)
+  
     
     screen.fill(backgroundColor)
+    pygame.draw.rect(screen, boxColor, difficultyBackground,0,10)
     screen.blit(start_txt , (20,250,50,50))
     screen.blit(title_txt , (20,20,50,50))
+    screen.blit(selectDif_txt, (20,310,50,50))
+    screen.blit(SoundtrackCredit,(20,670,50,50))
+    screen.blit(AudioEffectsCredit, (20,645,50,50))
+    
+    
+    if dif.blockFallTimer == 150:
+        screen.blit(easy_txt, (20,350,50,50))
+    elif dif.blockFallTimer == 200:
+        screen.blit(normal_txt, (20,350,50,50))
+    elif dif.blockFallTimer == 250:
+        screen.blit(hard_txt, (20,350,50,50))
+    elif dif.blockFallTimer == 50:
+        screen.blit(extreme_txt, (20,350,50,50))
     
     pygame.display.update()
     clock.tick(60)
