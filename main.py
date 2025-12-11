@@ -79,7 +79,7 @@ while menuRunning:
                 blockFallTimer = dif.blockFallTimer
                 
   
-    
+    #Wyświetlanie menu
     screen.fill(backgroundColor)
     pygame.draw.rect(screen, boxColor, difficultyBackground,0,10)
     screen.blit(start_txt , (20,250,50,50))
@@ -88,21 +88,21 @@ while menuRunning:
     screen.blit(SoundtrackCredit,(20,670,50,50))
     screen.blit(AudioEffectsCredit, (20,645,50,50))
     
-    
-    if dif.blockFallTimer == 250:
+    #Wyświetlanie aktualnego poziomu trudności
+    if dif.blockFallTimer == dif.easy:
         screen.blit(easy_txt, (20,350,50,50))
-    elif dif.blockFallTimer == 200:
+    elif dif.blockFallTimer == dif.normal:
         screen.blit(normal_txt, (20,350,50,50))
-    elif dif.blockFallTimer == 150:
+    elif dif.blockFallTimer == dif.hard:
         screen.blit(hard_txt, (20,350,50,50))
-    elif dif.blockFallTimer == 50:
+    elif dif.blockFallTimer == dif.extreme:
         screen.blit(extreme_txt, (20,350,50,50))
     
     pygame.display.update()
     clock.tick(60)
 
 
-print("Selected block fall timer: ", blockFallTimer)
+
 #Głowna pętla gry
 while isRunning:
     for event in pygame.event.get():
@@ -134,7 +134,7 @@ while isRunning:
     #max score
     maxScoreValue = text.renderText(str(game.maxScore), txtColor)
     
-    
+    #Rysowanie elementów menu gry
     screen.fill(backgroundColor)
     screen.blit(title_txt , (20,20,50,50))
     screen.blit(score_txt , (20,80,50,50))

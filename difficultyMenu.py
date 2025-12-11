@@ -8,27 +8,32 @@ class Difficulty:
         self.blockFallTimer = 200
         self.difficultyChangeSound = pygame.mixer.Sound("SoundEffects\difChange-floraphonic.mp3")
         self.difficultyChangeSound.set_volume(0.1)
+        self.easy = 250
+        self.normal = 200
+        self.hard = 150
+        self.extreme = 50 
             
-    def difficultyUp(self):
-        self.difficultyChangeSound.play()
-        if self.blockFallTimer == 150:
-            self.blockFallTimer = 200
-        elif self.blockFallTimer == 200:
-            self.blockFallTimer = 250
-        elif self.blockFallTimer == 250:
-            self.blockFallTimer = 50
-        elif self.blockFallTimer == 50:
-            self.blockFallTimer = 150
             
     def difficultyDown(self):
         self.difficultyChangeSound.play()
-        if self.blockFallTimer == 50:
-            self.blockFallTimer = 250
-        elif self.blockFallTimer == 150:
-            self.blockFallTimer = 50
-        elif self.blockFallTimer == 200:
-            self.blockFallTimer = 150
-        elif self.blockFallTimer == 250:
-            self.blockFallTimer = 200
+        if self.blockFallTimer ==  self.hard:
+            self.blockFallTimer = self.normal
+        elif self.blockFallTimer == self.normal:
+            self.blockFallTimer = self.easy
+        elif self.blockFallTimer == self.easy:
+            self.blockFallTimer = self.extreme
+        elif self.blockFallTimer == self.extreme:
+            self.blockFallTimer =  self.hard
+            
+    def difficultyUp(self):
+        self.difficultyChangeSound.play()
+        if self.blockFallTimer ==  self.extreme:
+            self.blockFallTimer = self.easy
+        elif self.blockFallTimer == self.hard:
+            self.blockFallTimer =  self.extreme
+        elif self.blockFallTimer == self.normal:
+            self.blockFallTimer = self.hard
+        elif self.blockFallTimer == self.easy:
+            self.blockFallTimer = self.normal
 
 
