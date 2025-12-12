@@ -1,5 +1,6 @@
 import pygame
 
+txtColor = (255,255,255)
 
 
 class text:
@@ -11,18 +12,18 @@ class text:
         self.bigfFont = pygame.font.Font("Eight-Bit Madness.ttf",125)
         
         
-    def renderTitle(self,txt,color):
+    def renderTitle(self,txt,color = txtColor):
         rendered_text =  self.fontTitle.render(txt, True , color)
         return  rendered_text
     
-    def renderText(self,txt,color):
+    def renderText(self,txt,color = txtColor):
         rendered_text = self.font.render(txt, True, color)
         return rendered_text
     
-    def renderSmallText(self,txt,color):
+    def renderSmallText(self,txt,color = txtColor):
         rendered_text = self.smallFont.render(txt, True, color)
         return rendered_text
     
-    def renderBigText(self,txt,color):
+    def renderBigText(self,txt,color = txtColor):
         rendered_text = self.bigfFont.render(txt, True, color)
         return rendered_text

@@ -9,7 +9,6 @@ from difficultyMenu import Difficulty
 pygame.init()
 
 backgroundColor = (48 , 25,52)
-txtColor = (255,255,255)
 boxColor = (54,15,90)
 titleFontColor =  (255,255,102)
 
@@ -28,22 +27,22 @@ blockFallTimer = dif.blockFallTimer
 
 
 
-title_txt = text.renderTitle("TETRIS", txtColor)
+title_txt = text.renderTitle("TETRIS")
 menuTitle_txt = text.renderBigText("TETRIS" , titleFontColor)
-score_txt = text.renderText("SCORE:", txtColor)
-next_txt = text.renderText("NEXT:", txtColor)
-gameOver_txt = text.renderText("GAME OVER", txtColor)
-maxScore_txt= text.renderSmallText("MAX SCORE:", txtColor)
-SoundtrackCredit = text.renderSmallText("Soundtrack: Kim Lightyear", txtColor)
-AudioEffectsCredit = text.renderSmallText("Sound Effects: floraphonic", txtColor)
-FontCredit = text.renderSmallText("Font: tylerdunn99", txtColor)
-Author_txt = text.renderSmallText("Bartosz Godzieszka", txtColor)
-start_txt = text.renderText("PRESS SPACE TO START" , txtColor)
-selectDif_txt = text.renderSmallText("Use arrows <- -> to change difficulty",txtColor)
-easy_txt = text.renderText("< EASY >" , txtColor)
-normal_txt = text.renderText("< NORMAL >" , txtColor)
-hard_txt = text.renderText("< HARD >" , txtColor)
-extreme_txt = text.renderText("< EXTREME >" , txtColor)
+score_txt = text.renderText("SCORE:")
+next_txt = text.renderText("NEXT:")
+gameOver_txt = text.renderText("GAME OVER")
+maxScore_txt= text.renderSmallText("MAX SCORE:")
+SoundtrackCredit = text.renderSmallText("Soundtrack: Kim Lightyear")
+AudioEffectsCredit = text.renderSmallText("Sound Effects: floraphonic")
+FontCredit = text.renderSmallText("Font: tylerdunn99")
+Author_txt = text.renderSmallText("Bartosz Godzieszka")
+start_txt = text.renderText("PRESS SPACE TO START")
+selectDif_txt = text.renderSmallText("Use arrows <- -> to change difficulty")
+easy_txt = text.renderText("< EASY >")
+normal_txt = text.renderText("< NORMAL >")
+hard_txt = text.renderText("< HARD >")
+extreme_txt = text.renderText("< EXTREME >")
 
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
@@ -136,9 +135,9 @@ while isRunning:
             game.moveDown()
      
     #Game score
-    scoreValue = text.renderText(str(game.score), txtColor)
+    scoreValue = text.renderText(str(game.score))
     #max score
-    maxScoreValue = text.renderText(str(game.maxScore), txtColor)
+    maxScoreValue = text.renderText(str(game.maxScore))
     
     #Rysowanie elementów menu gry
     screen.fill(backgroundColor)

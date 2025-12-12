@@ -121,6 +121,7 @@ class GameMechanic:
     def rotateBlock(self):
         self.currentBlock.rotate()
         
+        #Jeżeli blok po rotacji jest poza planszą lub nie pasuje cofa rotację
         if self.blockInside() == False  or self.blockFits() == False:
             self.currentBlock.undoRotate()
         
@@ -141,6 +142,6 @@ class GameMechanic:
         elif linesCleared == 3:
             self.score += 250
         elif linesCleared >=4:
-            self.score += 100 * linesCleared
+            self.score += 100 * linesCleared 
         self.score += movedDownPoints
             

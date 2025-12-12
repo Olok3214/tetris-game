@@ -12,10 +12,11 @@ class Block:
         self.cellSize = singleCellSize
         #Każdy ksztalt ma 4 różne możliwe obroty
         #0 - podstawowy , każdy blok pojawia się nie obrucony
-        self.rotationState = 0
-        self.colors = Colors.getCellColor()
         self.rowOffset = 0
         self.columnOffset =0
+        self.rotationState = 0
+        self.colors = Colors.getCellColor()
+
         
         
         
