@@ -1,6 +1,5 @@
 
 import sys
-from turtle import title
 import pygame
 from gameMainMechanics import GameMechanic
 from textDisplay import text
