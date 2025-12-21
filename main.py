@@ -47,6 +47,7 @@ moveLeft_txt = text.renderSmallText("Move right:  ->")
 moveRight_txt = text.renderSmallText("Move left:  <-")
 moveDown_txt = text.renderSmallText("Move down:  ^")
 rotate_txt = text.renderSmallText("Rotate: \/")
+hardDrop_txt = text.renderSmallText("HardDrop: space")
 
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
@@ -102,6 +103,7 @@ while menuRunning:
     screen.blit(moveLeft_txt,(20,460,50,50))
     screen.blit(moveDown_txt,(20,480,50,50))
     screen.blit(rotate_txt,(20,500,50,50))
+    screen.blit(hardDrop_txt,(20,520,50,50))
     
     #Wyświetlanie aktualnego poziomu trudności
     if dif.blockFallTimer == dif.easy:
