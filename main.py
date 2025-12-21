@@ -19,13 +19,13 @@ dif = Difficulty()
 text = text()
 game = GameMechanic()
 
+
+
 #szybkośc spadania bloków
-
-
 blockFallTimer = dif.blockFallTimer
 
 
-
+#przypisanie do zmiennych tekstu na ekranie
 title_txt = text.renderTitle("TETRIS")
 menuTitle_txt = text.renderBigText("TETRIS" , titleFontColor)
 score_txt = text.renderText("SCORE:")
@@ -42,8 +42,6 @@ easy_txt = text.renderText("< EASY >")
 normal_txt = text.renderText("< NORMAL >")
 hard_txt = text.renderText("< HARD >")
 extreme_txt = text.renderText("< EXTREME >")
-
-#controls
 control_txt = text.renderSmallText("Controls:")
 moveLeft_txt = text.renderSmallText("Move right:  ->")
 moveRight_txt = text.renderSmallText("Move left:  <-")
@@ -78,7 +76,8 @@ while menuRunning:
             if event.key == pygame.K_SPACE:
                 menuRunning = False
                 isRunning = True
-                #Zwiększenie / zmniejszenie trudności gry i ponowne przypisanie 
+                
+                #Zwiększenie / zmniejszenie trudności gry i ponowne przypisanie trudności 
             if event.key == pygame.K_LEFT:
                 dif.difficultyDown()
                 blockFallTimer = dif.blockFallTimer
@@ -87,7 +86,7 @@ while menuRunning:
                 blockFallTimer = dif.blockFallTimer
                 
   
-    #Wyświetlanie menu
+    #Wyświetlanie menu 
     screen.fill(backgroundColor)
     pygame.draw.rect(screen, boxColor, difficultyBackground,0,10)
     screen.blit(start_txt , (20,250,50,50))
@@ -129,10 +128,12 @@ while isRunning:
             sys.exit()
     
         if event.type == pygame.KEYDOWN:
+            #Gdy gra się skończy, naciścnięcie jakiegokolwiek przycisku spoowoduje restart gry
             if game.gameOver == True:
                 game.gameOver = False
                 game.resetGame()
                 
+                #Sterowanie
             if event.key == pygame.K_LEFT and game.gameOver == False:
                 game.moveLeft()
             if event.key == pygame.K_RIGHT and game.gameOver == False:

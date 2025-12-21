@@ -3,7 +3,7 @@ from grid import Grid
 import random
 import pygame
 
-#Game mechanics,
+#Główne mechaniky gry
 
 class GameMechanic:
     def __init__(self):
@@ -25,8 +25,9 @@ class GameMechanic:
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.15)
         
+        #Zwraca lowowy blok z listy dostępnych bloków
     def getRandomBlock(self):
-        # W grze każdy z bloków pojawia się przynajmniej raz podczas iteracji po wszytkich blokach
+        # W grze każdy z bloków pojawia się przynajmniej raz podczas iteracji po liście z wszystkimi blokami
         if len(self.blocks) == 0:
             self.blocks = [Iblock(), Jblock(), Oblock(), Lblock(), Sblock(), Tblock(), Zblock()]     
         block = random.choice(self.blocks)
@@ -50,22 +51,24 @@ class GameMechanic:
       
       
       
-      
+      #Przesunięcie bloku w dół
     def moveDown(self):
         self.currentBlock.move(1,0)
+        #Jeżeli blok nie pasuje po wykonaniu ruchu , cofamy ruch i go blokujemy
         if self.blockInside() == False or  self.blockFits() == False:
             self.currentBlock.move(-1,0)
     
-                #Jeżeli blok jest poza dolną krawędziła pętli lub NIE PASUJE
-                # zablokowujemy go
+                #Blokujemy blok zapisując go na planszy
             self.lockBlock()
       
-      #Przesunięcie bloku 
+      #Przesunięcie bloku w lewo
     def moveLeft(self):
         self.currentBlock.move(0,-1)
+        #Jeżeli blok nie pasuje po wykonaniu ruchu, cofamy blok 
         if self.blockInside() == False or self.blockFits() == False:
             self.currentBlock.move(0,1)
         
+        #Przesunięcie bloku w prawo
     def moveRight(self):
         self.currentBlock.move(0,1)
         if self.blockInside() == False or self.blockFits() == False:
@@ -75,32 +78,32 @@ class GameMechanic:
             
             
             
-            #Aktualizuje wartości grid 
+            #Aktualizuje wartości grid poprzez zablokowanie bloku
     def lockBlock(self):
         tiles = self.currentBlock.getCellPositions()
         for positon in tiles:
-            #Zamieniamy 0 na id bloku
+            #Zamieniamy wartości grid 0(pusty element) na id bloku
             self.grid.grid[positon.row][positon.column] = self.currentBlock.id
         
-        #Zamiana bloków, jeżeli zablokuje się obecny blok jest nastepnym, a następny jest od nowa wylowowany
+        #Zamiana bloków, następny blok jest obecnym, a następny jest od nowa wylowowany
         self.currentBlock = self.nextBlock
         self.nextBlock = self.getRandomBlock()
         rowsCleared = self.grid.clearFullRow()
-        
+        #
         if rowsCleared > 0:
             self.ClarLineSound.play()
             self.updateSore(rowsCleared , 0)
-        
+        #Jeżeli blok nie pasuje koniec gry
         if self.blockFits() == False:
             self.GameOverSound.play()
             self.gameOver = True
             
-            
+            #Hugh score
             if self.score > self.maxScore:
                 self.maxScore = self.score
                 
         
-        # Sprawdza czy blok pasuje 
+        # Funnkcja sprawdza czy blok pasuje(wszytkie karatki są puste), zwraca True jeżeli tak
     def blockFits(self):
         tiles = self.currentBlock.getCellPositions()
         for tile in tiles:
@@ -117,7 +120,8 @@ class GameMechanic:
             if self.grid.isInside(tile.row, tile.column) == False:
                 return False
         return True
-    
+        
+        #Fruncka obrotu bloku
     def rotateBlock(self):
         self.currentBlock.rotate()
         
@@ -133,7 +137,7 @@ class GameMechanic:
         self.currentBlock = self.getRandomBlock()
         self.nextBlock = self.getRandomBlock()
         
-        
+        #Aktualizacja wyniku
     def updateSore(self , linesCleared, movedDownPoints):
         if linesCleared == 1:
             self.score += 50

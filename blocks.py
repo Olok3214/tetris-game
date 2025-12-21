@@ -40,7 +40,7 @@ class Block:
         if self.rotationState == 4:
             self.rotationState = 0
             
-            
+        #Cofnięcie obrotu
     def undoRotate(self):
         self.rotationState -=1
         #Jeżeli obrót jest mniejszy niż 0 wraca do ostatniego obrotu(3)

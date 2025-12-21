@@ -13,7 +13,7 @@ class Difficulty:
         self.hard = 150
         self.extreme = 50 
             
-            
+            #Zmiana trudności
     def difficultyDown(self):
         self.difficultyChangeSound.play()
         if self.blockFallTimer ==  self.hard:

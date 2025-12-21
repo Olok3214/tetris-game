@@ -1,4 +1,3 @@
-from calendar import c
 import pygame
 from blockcolors import Colors
 
@@ -20,7 +19,7 @@ class Grid:
         
         
         
-        
+        #Funcka sprawdza czy podana kratka jest w planszy
     def isInside(self,row,column):
         if row >=0 and row < self.numOfRows and column >=0 and column < self.numOfColumns:
             return True
@@ -59,11 +58,13 @@ class Grid:
         for column in range(self.numOfColumns):
             self.grid[row][column] = 0
             
+            #przesunięcie wierszy w dół o wartość downoffset (ile wierszy zostało wyczyszczonych)
     def moveRowDown(self,row, downoffset):
         for column in range(self.numOfColumns):
             self.grid[row + downoffset][column] = self.grid[row][column]
             self.grid[row][column] = 0
             
+            #wyczyszczenie wierszy gdy są pełne. Zwraca ich liczbę
     def clearFullRow(self):
         completedRows = 0
         for row in range(self.numOfRows -1 , 0 , -1):
@@ -74,7 +75,8 @@ class Grid:
                 self.moveRowDown(row, completedRows)
         
         return completedRows
-    
+
+        #Reset grida, ustawiamy wszystkie kratki na 0 (pusta kratka)
     def resetGrid(self):
         for row in range(self.numOfRows):
             for column in range(self.numOfColumns):
