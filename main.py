@@ -43,6 +43,13 @@ normal_txt = text.renderText("< NORMAL >")
 hard_txt = text.renderText("< HARD >")
 extreme_txt = text.renderText("< EXTREME >")
 
+#controls
+control_txt = text.renderSmallText("Controls:")
+moveLeft_txt = text.renderSmallText("Move right:  ->")
+moveRight_txt = text.renderSmallText("Move left:  <-")
+moveDown_txt = text.renderSmallText("Move down:  ^")
+rotate_txt = text.renderSmallText("Rotate: \/")
+
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
 difficultyBackground = pygame.Rect(10 , 300 , 480 , 100)
@@ -90,6 +97,12 @@ while menuRunning:
     screen.blit(AudioEffectsCredit, (20,645,50,50))
     screen.blit(FontCredit, (20,695,50,50))
     screen.blit(Author_txt, (10,10,50,50))
+    
+    screen.blit(control_txt,(20,420,50,50))
+    screen.blit(moveRight_txt,(20,440,50,50))
+    screen.blit(moveLeft_txt,(20,460,50,50))
+    screen.blit(moveDown_txt,(20,480,50,50))
+    screen.blit(rotate_txt,(20,500,50,50))
     
     #Wyświetlanie aktualnego poziomu trudności
     if dif.blockFallTimer == dif.easy:
