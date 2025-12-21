@@ -140,9 +140,14 @@ while isRunning:
                 game.moveRight()
             if event.key == pygame.K_DOWN and game.gameOver == False:
                 game.moveDown()
-                game.updateSore(0,3)
+                game.updateSore(0,2)
             if event.key == pygame.K_UP and game.gameOver == False:
                 game.rotateBlock()
+                
+                #HardDrop
+            if event.key == pygame.K_SPACE and game.gameOver == False:
+                game.hardDrop()
+                game.updateSore(0,20)
         
         if event.type == timer_event and game.gameOver == False:
             game.moveDown()

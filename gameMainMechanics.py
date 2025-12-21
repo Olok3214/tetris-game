@@ -1,3 +1,4 @@
+from operator import truediv
 from blocksDef import Iblock, Jblock, Lblock, Oblock, Sblock, Tblock, Zblock
 from grid import Grid
 import random
@@ -75,8 +76,17 @@ class GameMechanic:
             self.currentBlock.move(0,-1)
         
     
+        #Harddrop
+    def hardDrop(self):
+        isFalling = True
+        
+        while isFalling:
+            self.currentBlock.move(1,0)
             
-            
+            if self.blockInside() == False or  self.blockFits() == False:
+                self.currentBlock.move(-1,0)
+                isFalling = False
+                self.lockBlock()
             
             #Aktualizuje wartości grid poprzez zablokowanie bloku
     def lockBlock(self):
@@ -140,12 +150,12 @@ class GameMechanic:
         #Aktualizacja wyniku
     def updateSore(self , linesCleared, movedDownPoints):
         if linesCleared == 1:
-            self.score += 50
+            self.score += 75
         elif linesCleared ==2:
-            self.score += 150
+            self.score += 200
         elif linesCleared == 3:
-            self.score += 250
+            self.score += 350
         elif linesCleared >=4:
-            self.score += 100 * linesCleared 
+            self.score += 200 * linesCleared 
         self.score += movedDownPoints
             
