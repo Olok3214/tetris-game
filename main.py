@@ -149,7 +149,7 @@ while isRunning:
                 #HardDrop
             if event.key == pygame.K_SPACE and game.gameOver == False:
                 game.hardDrop()
-                game.updateSore(0,20)
+                game.updateSore(0,10)
         
         if event.type == timer_event and game.gameOver == False:
             game.moveDown()
