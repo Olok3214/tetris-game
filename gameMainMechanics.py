@@ -21,6 +21,8 @@ class GameMechanic:
         
         self.GameOverSound = pygame.mixer.Sound("SoundEffects\GameOver-floraphonic.mp3")
         
+        self.hardDropSound = pygame.mixer.Sound("SoundEffects\difChange-floraphonic.mp3")
+        self.hardDropSound.set_volume(0.2)
         
         pygame.mixer.music.load("SoundEffects\kim-lightyear-leave-the-world-tonight.mp3")
         pygame.mixer.music.play(-1)
@@ -86,6 +88,7 @@ class GameMechanic:
             if self.blockInside() == False or  self.blockFits() == False:
                 self.currentBlock.move(-1,0)
                 isFalling = False
+                self.hardDropSound.play()
                 self.lockBlock()
             
             #Aktualizuje wartości grid poprzez zablokowanie bloku
