@@ -58,7 +58,7 @@ python main.py
 * W3schools (szczekulnie sekcja poświęcona klasą/obiektą) [Strona](https://www.w3schools.com/python/python_classes.asp)
 * TetrisWiki [Strona](https://tetris.wiki/Super_Rotation_System)
 * StrategyWiki [Strona](https://strategywiki.org/wiki/Tetris/Control)
-* freeCodeCamp.org Pygame Tutorial for Beginners - Python Game Development Course [Youtube](https://www.youtube.com/watch?v=FfWpgLFMI7w)
+* ClearCode The ultimate introduction to Pygame [Youtube](https://www.youtube.com/watch?v=AY9MnQ4x3zk)
 
 ---
 
