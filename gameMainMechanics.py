@@ -78,7 +78,7 @@ class GameMechanic:
             self.currentBlock.move(0,-1)
         
     
-        #Harddrop
+        #Harddrop - przesuwa blok na sam dół
     def hardDrop(self):
         isFalling = True
         
