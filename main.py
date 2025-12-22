@@ -46,7 +46,7 @@ control_txt = text.renderSmallText("Controls:")
 moveLeft_txt = text.renderSmallText("Move right:  ->")
 moveRight_txt = text.renderSmallText("Move left:  <-")
 moveDown_txt = text.renderSmallText("Move down:  ^")
-rotate_txt = text.renderSmallText("Rotate: \/")
+rotate_txt = text.renderSmallText("Rotate: \\/")
 hardDrop_txt = text.renderSmallText("HardDrop: space")
 
 scoreBackground = pygame.Rect(20,120,200,80)

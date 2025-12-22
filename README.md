@@ -26,6 +26,7 @@ Gra ma dostępne 4 poziomy trudności.
 * **→** – ruch klocka w prawo
 * **↓** – ruch klocka w dół
 * **↑** – obrót klocka
+* **space** - hard drop
 
 ---
 
