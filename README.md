@@ -18,6 +18,20 @@ Prosty projekt gry **Tetris** napisany w języku **Python**. Projekt wykonany w 
 Gracz steruje spadającymi klockami i układa je na planszy. Po zapełnieniu całej linii poziomej linia zostaje usunięta, a gracz zdobywa punkty. Gra kończy się, gdy nie ma miejsca na nowy klocek. 
 Gra ma dostępne 4 poziomy trudności.
 
+## Funkcje gry
+
+* Klasyczna mechanika Tetrisa
+* 4 poziomy trudności (różna prędkość spadania klocków)
+* System punktacji zależny od liczby usuniętych linii
+* Efekty dźwiękowe i muzyka w tle
+* Menu główne
+
+## Poziomy trudności
+
+1. **Łatwy** – wolne tempo spadania klocków
+2. **Normalny** – standardowe tempo gry
+3. **Trudny** – szybsze tempo, większe wyzwanie
+4. **Ekspert** – bardzo szybkie tempo, wymaga refleksu
 ---
 
 ## Sterowanie
