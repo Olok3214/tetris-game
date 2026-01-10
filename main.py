@@ -90,7 +90,7 @@ while menuRunning:
     #Wyświetlanie menu 
     screen.fill(backgroundColor)
     pygame.draw.rect(screen, boxColor, difficultyBackground,0,10)
-    screen.blit(start_txt , (20,250,50,50))
+    screen.blit(start_txt , (70,220,50,50))
     screen.blit(menuTitle_txt  , (110,80,50,50))
     screen.blit(selectDif_txt, (20,310,50,50))
     screen.blit(SoundtrackCredit,(20,670,50,50))
