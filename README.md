@@ -10,12 +10,12 @@ Prosty projekt gry **Tetris** napisany w języku **Python**. Projekt wykonany w 
 * **Typ:** Gra 2D
 
 * Gra korzysta z biblioteki pygame-community edition
-    * [Główna strona pygame-ce](https://pyga.me/docs/) 
-    * [GitHub](https://github.com/pygame-community/pygame-ce#readme)
+  * [Główna strona pygame-ce](https://pyga.me/docs/)
+  * [GitHub](https://github.com/pygame-community/pygame-ce#readme)
 
 ## Opis gry
 
-Gracz steruje spadającymi klockami i układa je na planszy. Po zapełnieniu całej linii poziomej linia zostaje usunięta, a gracz zdobywa punkty. Gra kończy się, gdy nie ma miejsca na nowy klocek. 
+Gracz steruje spadającymi klockami i układa je na planszy. Po zapełnieniu całej linii poziomej linia zostaje usunięta, a gracz zdobywa punkty. Gra kończy się, gdy nie ma miejsca na nowy klocek.
 Gra ma dostępne 4 poziomy trudności.
 
 ## Funkcje gry
@@ -30,8 +30,9 @@ Gra ma dostępne 4 poziomy trudności.
 
 1. **Łatwy** – wolne tempo spadania klocków
 2. **Normalny** – standardowe tempo gry
-3. **Trudny** – szybsze tempo, większe wyzwanie
-4. **Ekspert** – bardzo szybkie tempo, wymaga refleksu
+3. **Trudny** – szybsze tempo
+4. **Ekspert** – bardzo szybkie tempo
+
 ---
 
 ## Sterowanie
@@ -51,20 +52,25 @@ Instalacja biblioteki:
 ```bash
 pip install pygame-ce
 ```
+
 Uruchomienie gry:
-```bash
+
+``` bash
 python main.py
 ```
+
 ---
 
-## Muzyka i efekty dźwiękowe:
+## Muzyka i efekty dźwiękowe
+
 * **Muzyka w tle** –  Leave The World Tonight  Kim Lightyear - [Strona](https://pixabay.com/music/video-games-kim-lightyear-leave-the-world-tonight-chiptune-edit-loop-132102/)
 * **Efekty dzwiękowe** – Autor: floraphonic - [Strona](https://pixabay.com/users/floraphonic-38928062/)
 * **Czcionka** - Eight-Bit Madness Autor: Tsunamical - [Strona](https://www.dafont.com/eight-bit-madness.font)
 
 ---
 
-## Użyte materiały pomocnicze:
+## Użyte materiały pomocnicze
+
 * DaFluffyPotato Pygame in 18 Minutes [Youtube](https://www.youtube.com/watch?v=blLLtdv4tvo) (06.12.2025)
 * DaFluffyPotato How to Code (almost) Any Feature [Youtube](https://www.youtube.com/watch?v=h1o5UzKfZcQ)
 * DaFluffyPotato Menus - Pygame Tutorial [Youtube](https://www.youtube.com/watch?v=0RryiSjpJn0) (06.12.2025)
