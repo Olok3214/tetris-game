@@ -111,7 +111,7 @@ class GameMechanic:
             self.GameOverSound.play()
             self.gameOver = True
             
-            #Hugh score
+            #High score
             if self.score > self.maxScore:
                 self.maxScore = self.score
                 
@@ -134,7 +134,7 @@ class GameMechanic:
                 return False
         return True
         
-        #Fruncka obrotu bloku
+        #Obracanie bloku
     def rotateBlock(self):
         self.currentBlock.rotate()
         

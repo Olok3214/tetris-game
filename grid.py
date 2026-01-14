@@ -19,7 +19,7 @@ class Grid:
         
         
         
-        #Funcka sprawdza czy podana kratka jest w planszy
+        #Funkcja sprawdza czy podana kratka jest w planszy
     def isInside(self,row,column):
         if row >=0 and row < self.numOfRows and column >=0 and column < self.numOfColumns:
             return True
@@ -28,13 +28,13 @@ class Grid:
     
     
     
-    #rysowanie siatki, kolory kształtów są zależnie od numerów listy
+    #rysowanie siatki, kolory kształtów są zależnie od indeksów kolorów w liście
     # 0 - szary (pusty) 2-7 - kolory
     def drawGrid(self, screen):
         for row in range(self.numOfRows):
             for column in range(self.numOfColumns):
                 currentCellValue = self.grid[row][column]
-                #kolizje komórki
+                #Określenie pozycji
                 cellRect = pygame.Rect(column * self.cellSize +280, row * self.cellSize +11
                                        , self.cellSize -1 ,self.cellSize -1)
                 #Rysowanie komórek
