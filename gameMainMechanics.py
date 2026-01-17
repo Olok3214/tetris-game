@@ -44,6 +44,7 @@ class GameMechanic:
         #rysowanie aktualnego bloku
         self.currentBlock.drawBlock(screen,0,0)
         
+        #Rysowanie następnego bloku obok planszy
         #Żeby bloki I i O były na środku nastepnego bloku
         if self.nextBlock.id == 2:
             self.nextBlock.drawBlock(screen,-305,360)
@@ -101,8 +102,10 @@ class GameMechanic:
         #Zamiana bloków, następny blok jest obecnym, a następny jest od nowa wylowowany
         self.currentBlock = self.nextBlock
         self.nextBlock = self.getRandomBlock()
+        
+        #Sprawdzenie czy któryś z wierszy jest pełny
         rowsCleared = self.grid.clearFullRow()
-        #
+        
         if rowsCleared > 0:
             self.ClarLineSound.play()
             self.updateSore(rowsCleared , 0)
