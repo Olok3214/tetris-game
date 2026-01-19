@@ -4,6 +4,7 @@ import pygame
 from gameMainMechanics import GameMechanic
 from textDisplay import text
 from difficultyMenu import Difficulty
+from scoreMemory import scoreMemory
 
 pygame.init()
 
@@ -19,7 +20,8 @@ dif = Difficulty()
 text = text()
 game = GameMechanic()
 
-
+#Odczytywanie max wyników z pamięci lokalnej
+scoreMemory.loadMaxScoreFromLocalFile()
 
 #szybkośc spadania bloków
 blockFallTimer = dif.blockFallTimer
@@ -49,9 +51,16 @@ moveDown_txt = text.renderSmallText("Move down:  \\/")
 rotate_txt = text.renderSmallText("Rotate: ^")
 hardDrop_txt = text.renderSmallText("HardDrop: space")
 
+curentHighScores_txt = text.renderSmallText('Current High Scores:')
+maxEasy_txt = text.renderSmallText('easy: ' + str(scoreMemory.maxEasyScore))
+maxNormal_txt = text.renderSmallText('normal: ' +str(scoreMemory.maxNormalScore))
+maxHard_txt = text.renderSmallText('hard: ' +str(scoreMemory.maxHardSode))
+maxExtreme_txt = text.renderSmallText('extreme: ' +str(scoreMemory.maxExtremeScore))
+
 scoreBackground = pygame.Rect(20,120,200,80)
 nextBackground = pygame.Rect(20,290,200,200)
-difficultyBackground = pygame.Rect(10 , 300 , 480 , 100)
+difficultyBackground = pygame.Rect(10 , 300 , 420 , 100)
+
 
 pygame.display.set_caption("Tetris")
 clock = pygame.time.Clock()
@@ -98,12 +107,21 @@ while menuRunning:
     screen.blit(FontCredit, (20,695,50,50))
     screen.blit(Author_txt, (10,10,50,50))
     
+    #Sterowanie
     screen.blit(control_txt,(20,420,50,50))
     screen.blit(moveRight_txt,(20,440,50,50))
     screen.blit(moveLeft_txt,(20,460,50,50))
     screen.blit(moveDown_txt,(20,480,50,50))
     screen.blit(rotate_txt,(20,500,50,50))
     screen.blit(hardDrop_txt,(20,520,50,50))
+    
+    #Wyświetlanie max wyników 
+    screen.blit(curentHighScores_txt,(360,420,50,50))
+    screen.blit(maxEasy_txt ,(360,440,50,50))
+    screen.blit(maxNormal_txt ,(360,460,50,50))
+    screen.blit(maxHard_txt ,(360,480,50,50))
+    screen.blit(maxExtreme_txt ,(360,500,50,50))
+    
     
     #Wyświetlanie aktualnego poziomu trudności
     if dif.blockFallTimer == dif.easy:
@@ -120,6 +138,10 @@ while menuRunning:
     
 #Ustawienie timera do opadania bloków
 pygame.time.set_timer(timer_event , blockFallTimer)
+
+#Ustawianie wybranej trudnosci do odczytu odpowiedniego maksymalnego wyniku
+scoreMemory.setCurentGameDiff(blockFallTimer)
+
 
 #Głowna pętla gry
 while isRunning:
@@ -157,7 +179,7 @@ while isRunning:
     #Game score
     scoreValue = text.renderText(str(game.score))
     #max score
-    maxScoreValue = text.renderText(str(game.maxScore))
+    maxScoreValue = text.renderText(str(scoreMemory.getCurrentMaxScore()))
     
     #Rysowanie elementów menu gry
     screen.fill(backgroundColor)

@@ -1,4 +1,4 @@
-from operator import truediv
+from scoreMemory import scoreMemory
 from blocksDef import Iblock, Jblock, Lblock, Oblock, Sblock, Tblock, Zblock
 from grid import Grid
 import random
@@ -14,7 +14,8 @@ class GameMechanic:
         self.currentBlock = self.getRandomBlock()
         self.nextBlock = self.getRandomBlock()
         self.score = 0
-        self.maxScore =0
+        
+
         
         self.ClarLineSound = pygame.mixer.Sound("SoundEffects\ClearLine-floraphonic.mp3")
         self.ClarLineSound.set_volume(0.7)
@@ -115,8 +116,11 @@ class GameMechanic:
             self.gameOver = True
             
             #High score
-            if self.score > self.maxScore:
-                self.maxScore = self.score
+            maxScore = scoreMemory.getCurrentMaxScore()
+            if self.score >maxScore:
+                maxScore = self.score
+                scoreMemory.updateHighScore(maxScore)
+                
                 
         
         # Funnkcja sprawdza czy blok pasuje(wszytkie karatki są puste), zwraca True jeżeli tak
